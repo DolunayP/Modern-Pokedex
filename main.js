@@ -26,6 +26,7 @@ const countPoke = async () => {
     };
 };
 
+
 const getPoke = async (num) => {
     let url = `https://pokeapi.co/api/v2/pokemon/${num}`;
     let res = await fetch(url);
