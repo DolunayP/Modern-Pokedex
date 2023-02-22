@@ -19,14 +19,14 @@ const colors = {
     ice: "#e0f5ff ",
 };
 
+//amount of poke
 const countPoke = async () => {
     for (let i = 1; i <= pokeAmount; i++) {
         getPoke(i);
-
     };
 };
 
-
+//get datas from PokeApi
 const getPoke = async (num) => {
     let url = `https://pokeapi.co/api/v2/pokemon/${num}`;
     let res = await fetch(url);
@@ -34,6 +34,7 @@ const getPoke = async (num) => {
     createPoke(data);
 }
 
+//display datas on screen
 const createPoke = (poke) => {
     let name = poke.name[0].toUpperCase() + poke.name.slice(1);
     let id = poke.id.toString().padStart(3, "0");
@@ -50,7 +51,7 @@ const createPoke = (poke) => {
 </div>`
 }
 countPoke();
-
+//SearchBar
 searchInput.addEventListener('input', function (e) {
     const pokeName = document.querySelectorAll('.poke-name');
     let inputValue = searchInput.value.trim().toLowerCase();
