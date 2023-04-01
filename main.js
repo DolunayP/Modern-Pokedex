@@ -25,7 +25,6 @@ const countPoke = async () => {
         getPoke(i);
     };
 };
-
 //get datas from PokeApi
 const getPoke = async (num) => {
     let url = `https://pokeapi.co/api/v2/pokemon/${num}`;
@@ -42,15 +41,17 @@ const createPoke = (poke) => {
     let weight = poke.weight;
     const color = colors[type];
 
-    pokeContainer.innerHTML += `<div class="poke-card" style="background-color:${color}">
-<img class="poke-img" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png" alt="">
-<h3 class="poke-name">${name}</h3>
-<p class="poke-id">#${id}</p>
-<p class="poke-weight">${weight} kg</p>
-<p class="poke-type">Type: ${type}</p>
-</div>`
+    pokeContainer.innerHTML += `
+    <div class="poke-card" style="background-color:${color}">
+        <img class="poke-img" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png" alt="">
+        <h3 class="poke-name">${name}</h3>
+        <p class="poke-id">#${id}</p>
+        <p class="poke-weight">${weight} kg</p>
+        <p class="poke-type">Type: ${type}</p>
+    </div>`
 }
 countPoke();
+
 //SearchBar
 searchInput.addEventListener('input', function (e) {
     const pokeName = document.querySelectorAll('.poke-name');
@@ -62,7 +63,5 @@ searchInput.addEventListener('input', function (e) {
         } else {
             el.parentElement.style.display = 'none'
         }
-        ;
-
     });
 })
